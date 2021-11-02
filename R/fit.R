@@ -23,7 +23,8 @@
 #' @import tensorflow
 #' @importFrom purrr transpose
 fit <- function(mod, loss, x, y, maxit = 1000, learning.rate = 0.03, thresh = 1e-4) {
-  optimizer <- keras::optimizer_adam(learning.rate)
+#  optimizer <- keras::optimizer_adam(learning.rate)
+   optimizer <- keras::optimizer_nadam(learning.rate)
   lo.old <- Inf
 
   for (step in seq_len(maxit)) {
